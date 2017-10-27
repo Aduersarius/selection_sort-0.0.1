@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+int main() {
+int *a = new int;
+    cin >> *a;
+    int b = *a;
+    int m[*a];
+    for (int i = 0; i < *a; i++) {cin >> m[i];}
+    for (int i = 0; i < *a; i++) {
+        for (int j = 0; j < *a; j++){
+            if (j > i && m[j] > m[i]){swap(m[i],m[j]);}
+        }
+    }
+    for (int i = 0; i < *a; i++) { cout << m[i] << ' ';}
+    return 0;
+}
