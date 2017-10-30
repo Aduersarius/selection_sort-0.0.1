@@ -1,15 +1,47 @@
 #include <iostream>
+
+#include <sstream>
+
 using namespace std;
+
 int main() {
-int *a = new int;
-    cin >> *a;
-    int m[*a];
-    for (int i = 0; i < *a; i++) {cin >> m[i];}
-    for (int i = 0; i < *a; i++) {
-        for (int j = 0; j < *a; j++){
-            if (j > i && m[j] > m[i]){swap(m[i],m[j]);}
+
+    int a; string line , o;
+
+    getline(cin, o);
+
+    istringstream stream(o);
+
+    stream >> a;
+
+    getline(cin, line);
+
+    istringstream arr(line);
+
+    int *m = new int[a];
+
+    for (int i = 0; i < a; i++) {
+
+        if (!(arr >> m[i])) {
+
+            cout << "An error has occuried while reading input data.";
+
+            return 0;
         }
     }
-    for (int i = 0; i < *a; i++) { cout << m[i] << ' ';}
+
+    for (int i = 0; i < a; i++) {
+
+        for (int j = 0; j < a; j++) {
+
+            if (j > i && m[j] > m[i]) { swap(m[i], m[j]); }
+
+        }
+
+    }
+
+    for (int i = 0; i < a; i++) { cout << m[i] << ' '; }
+
     return 0;
+
 }
