@@ -3,7 +3,7 @@
 #include <sstream>
 
 using namespace std;
-
+int k;
 int main() {
 
     int a; string line , o;
@@ -11,8 +11,12 @@ int main() {
     getline(cin, o);
 
     istringstream stream(o);
+    if (!(stream >> a)) {
 
-    stream >> a;
+        cout << "An error has occuried while reading input data.";
+
+        return 0;
+    }
 
     getline(cin, line);
 
@@ -30,14 +34,13 @@ int main() {
         }
     }
 
-    for (int i = 0; i < a; i++) {
+    for (int i = 0; i < a; i++) {k = i;
 
-        for (int j = 0; j < a; j++) {
+        for (int j = i +1 ; j < a; j++) {
 
-            if (j > i && m[j] > m[i]) { swap(m[i], m[j]); }
-
+            if ( m[k] > m[j]) {  k = j;}
         }
-
+        swap(m[i], m[k]);
     }
 
     for (int i = 0; i < a; i++) { cout << m[i] << ' '; }
